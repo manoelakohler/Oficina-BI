@@ -12,7 +12,12 @@ pipeline = joblib.load('breast_pipeline.pkl')
 # Criar uma rota para o endpoint
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
+    """ Endpoint para inferência de tumores de mama.
 
+    :param file: Arquivo CSV com os dados a serem inferidos
+
+    :return dict: Dicionário com as predições
+    """
     # Ler o arquivo
     df = pd.read_csv(file.file, index_col=0)
     # Fazer a predição
