@@ -18,6 +18,7 @@ async def predict(file: UploadFile = File(...)):
 
     :return dict: Dicionário com as predições
     """
+
     # Ler o arquivo
     df = pd.read_csv(file.file, index_col=0)
     # Fazer a predição
